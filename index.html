@@ -4,198 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parking Lot Layout</title>
-  <style>
-    :root {
-      --slot-width: 80px;
-      /* ความกว้างช่องจอด */
-      --slot-height: 120px;
-      /* ความยาวช่องจอด */
-      --road-height: 100px;
-      /* ความกว้างถนนตรงกลาง */
-    }
-
-    body {
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      padding: 50px;
-      font-family: 'Kanit', sans-serif;
-    }
-
-    /* กล่องใหญ่สุด (ลานจอดรถ) */
-    .parking-lot {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      display: inline-block;
-      position: relative;
-    }
-
-    /* เส้นวัดขนาด (ทำหลอกๆ ไว้ด้านข้าง) */
-    .parking-lot::after {
-      content: '6.0 ม.';
-      position: absolute;
-      right: -40px;
-      top: 50%;
-      transform: translateY(-50%) rotate(90deg);
-      color: #666;
-      font-size: 0.8rem;
-    }
-
-    /* --- โซนจอดรถ (แถวบนและล่าง) --- */
-    .parking-row {
-      display: flex;
-      /* ใช้ Flex เพื่อเรียงช่องจอดต่อกันแนวนอน */
-      border: 2px solid #333;
-      /* ขอบปูนกั้น */
-    }
-
-    /* --- ช่องจอดรถแต่ละช่อง --- */
-    .slot {
-      width: var(--slot-width);
-      height: var(--slot-height);
-      border-right: 1px dashed #ccc;
-      /* เส้นประแบ่งช่อง */
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* ลบเส้นประช่องสุดท้ายออก */
-    .slot:last-child {
-      border-right: none;
-    }
-
-    /* --- ถนนตรงกลาง --- */
-    .road {
-      height: var(--road-height);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    /* --- รถ (Car) --- */
-    .car {
-      width: 70%;
-      height: 85%;
-      background-color: #ddd;
-      border-radius: 8px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      position: relative;
-      transition: all 0.3s ease;
-
-      /* ทำให้ดูเหมือนรถ */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 5px;
-    }
-
-    .car::before {
-      content: '';
-      height: 20%;
-      background: #333;
-      border-radius: 2px 2px 0 0;
-      opacity: 0.2;
-    }
-
-    /* กระจกหน้า */
-    .car::after {
-      content: '';
-      height: 20%;
-      background: #333;
-      border-radius: 0 0 2px 2px;
-      opacity: 0.2;
-    }
-
-    /* กระจกหลัง */
-
-    /* สถานะรถ */
-    .car.red {
-      background-color: #ef4444;
-    }
-
-    /* รถสีแดง */
-    .car.gray {
-      background-color: #6b7280;
-    }
-
-    /* รถสีเทา */
-    .car.white {
-      background-color: #f3f4f6;
-      border: 1px solid #ddd;
-    }
-
-    /* รถสีขาว */
-
-    /* ตัวเลขช่องจอด */
-    .slot-number {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      font-size: 0.7rem;
-      color: #888;
-    }
-
-    /* ตัวอย่างรถขับบนถนน */
-    .moving-car {
-      transform: rotate(90deg);
-      /* หมุนให้ขนานกับถนน */
-    }
-  </style>
+  <title>Car Parking RMUTL P1</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="parking-lot">
-    <div class="parking-row">
-      <div class="slot"><span class="slot-number">A01</span>
-        <div class="car gray"></div>
+  <header>
+    <h1>Car Parking RMUTL</h1>
+  </header>
+
+  <nav>
+    <a href="park1.html" class="select"> (ศศ.)</a>
+    <a href="#"> (ศท.)</a>
+  </nav>
+
+  <section>
+    <div class="parkBox">
+
+      <div class="car" name="1">
+        <span>P1</span>
       </div>
-      <div class="slot"><span class="slot-number">A02</span>
-        <div class="car gray"></div>
+
+      <div class="car" name="2">
+        <span>P2</span>
       </div>
-      <div class="slot"><span class="slot-number">A03</span>
-        <div class="car gray"></div>
+
+      <div class="car" name="3">
+        <span>P3</span>
       </div>
-      <div class="slot"><span class="slot-number">A04</span>
-        <div class="car gray"></div>
+
+      <div class="car" name="4">
+        <span>P4</span>
       </div>
-      <div class="slot"><span class="slot-number">A05</span>
+
+      <div class="car" name="5">
+        <span>P5</span>
       </div>
-      <div class="slot"><span class="slot-number">A06</span>
+
+      <div class="car" name="6">
+        <span>P6</span>
       </div>
+
+      <div class="car" name="7">
+        <span>P7</span>
+      </div>
+
+      <div class="car" name="8">
+        <span>P8</span>
+      </div>
+
+      <div class="car" name="9">
+        <span>P9</span>
+      </div>
+
+      <div class="car" name="10">
+        <span>P10</span>
+      </div>
+
     </div>
-
-
-
-    <div class="parking-row">
-      <div class="slot"><span class="slot-number">B01</span>
-        <div class="car gray"></div>
-      </div>
-      <div class="slot"><span class="slot-number">B02</span>
-        <div class="car gray"></div>
-      </div>
-      <div class="slot"><span class="slot-number">B03</span>
-        <div class="car gray"></div>
-      </div>
-      <div class="slot"><span class="slot-number">B04</span>
-        <div class="car gray"></div>
-      </div>
-      <div class="slot"><span class="slot-number">B05</span>
-        <div class="car gray"></div>
-      </div>
-      <div class="slot"><span class="slot-number">B06</span>
-        <div class="car gray"></div>
-      </div>
-    </div>
-  </div>
-
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
