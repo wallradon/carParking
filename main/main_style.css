@@ -1,0 +1,93 @@
+/* 1. Import Font จาก Google Fonts เพื่อความทันสมัย */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+/* 2. Reset ค่าเริ่มต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5; /* พื้นหลังสีเทาอ่อนให้ตัวเนื้อหาเด่นขึ้น */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 3. Header: สีน้ำเงิน มทร.ล้านนา */
+header {
+    background-color: #003366; /* สีน้ำเงินเข้ม (RMUTL Blue) */
+    color: #ffffff;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-bottom: 5px solid #fdb913; /* เส้นขอบล่างสีทอง (RMUTL Gold) */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 4. Navigation: แถบเมนูเลือกอาคาร */
+nav {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+nav a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: 2px solid #003366;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #fdb913; /* เปลี่ยนเป็นสีทองตอนเอาเมาส์ชี้ */
+    color: #003366;
+    border-color: #fdb913;
+    transform: translateY(-2px);
+}
+
+/* 5. Section: ส่วนแสดงข้อมูล */
+section {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 8px solid #003366; /* ตกแต่งขอบข้างด้วยสีน้ำเงิน */
+}
+
+section p {
+    font-size: 1.1rem;
+    color: #555;
+    text-indent: 20px; /* ย่อหน้าสวยๆ */
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    section {
+        margin: 15px;
+        padding: 20px;
+    }
+}

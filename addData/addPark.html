@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park Database Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- CSS Configuration --- */
+    :root {
+      --primary-color: #2563eb;
+      /* สีฟ้า (เพิ่มสวน) */
+      --purple-color: #7c3aed;
+      /* สีม่วง (แก้ไขสถานะ) */
+      --success-color: #10b981;
+      /* สีเขียว (เพิ่มช่องจอดเดิม) */
+      --bg-color: #f3f4f6;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-sub: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      color: #111827;
+      font-size: 1.8rem;
+      margin: 0 0 5px 0;
+    }
+
+    header p {
+      color: var(--text-sub);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* --- TAB NAVIGATION --- */
+    .tabs-wrapper {
+      background: #fff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px 10px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: 'Kanit', sans-serif;
+      font-weight: 500;
+      color: var(--text-sub);
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      background-color: #f9fafb;
+      color: var(--primary-color);
+    }
+
+    /* Active States for Tabs */
+    .tab-btn.active {
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* สีเฉพาะของแต่ละปุ่มเมื่อ Active */
+    .tab-btn[data-target="add"].active {
+      border-bottom-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .tab-btn[data-target="append"].active {
+      border-bottom-color: var(--success-color);
+      color: var(--success-color);
+    }
+
+    .tab-btn[data-target="status"].active {
+      border-bottom-color: var(--purple-color);
+      color: var(--purple-color);
+    }
+
+    /* --- Content Section --- */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card Styling */
+    .card {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-top: 5px solid transparent;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.2s;
+      background-color: #f9fafb;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      background-color: #fff;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.1s, opacity 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>🚗 Park Manager</h1>
+      <p>ระบบจัดการฐานข้อมูลที่จอดรถ</p>
+    </header>
+
+    <div class="tabs-wrapper">
+      <button class="tab-btn active" data-target="add">➕ เพิ่มสวนใหม่</button>
+      <button class="tab-btn" data-target="append">🏗️ เพิ่มช่องจอดเดิม</button>
+      <button class="tab-btn" data-target="status">🔧 สถานะช่อง</button>
+    </div>
+
+    <div id="add" class="tab-content active">
+      <div class="card" style="border-top-color: var(--primary-color);">
+        <form id="parkForm">
+          <h3><span style="color:var(--primary-color)">➕</span> Add New Park</h3>
+          <p style="color:var(--text-sub); margin-bottom:20px;">เพิ่มลานจอดรถใหม่และสร้างช่องจอดอัตโนมัติ</p>
+
+          <div class="form-group">
+            <label>Park Name (ชื่อลานจอด)</label>
+            <input type="text" id="parkNameInput" placeholder="Ex. อาคารจอดรถ 1" required>
+          </div>
+
+          <div class="form-group">
+            <label>Capacity (จำนวนช่องจอด)</label>
+            <input type="number" id="parkCountInput" min="1" value="1" required>
+          </div>
+
+          <button type="submit" style="background-color: var(--primary-color);">บันทึกข้อมูล (Save)</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="append" class="tab-content">
+      <div class="card" style="border-top-color: var(--success-color);">
+        <form id="appendForm">
+          <h3><span style="color:var(--success-color)">🏗️</span> Append Slots</h3>
+          <p style="color:var(--text-sub); margin-bottom:20px;">เพิ่มจำนวนช่องจอดให้กับสวนที่มีอยู่แล้ว</p>
+
+          <div class="form-group">
+            <label>Park ID (รหัสสวนที่ต้องการเพิ่ม)</label>
+            <input type="number" id="existingParkIdInput" placeholder="ระบุ ID Park (เช่น 1, 5)" required>
+          </div>
+
+          <div class="form-group">
+            <label>Additional Quantity (จำนวนที่ต้องการเพิ่ม)</label>
+            <input type="number" id="appendCountInput" min="1" value="1" required>
+          </div>
+
+          <button type="submit" style="background-color: var(--success-color);">ยืนยันการเพิ่ม (Add)</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="status" class="tab-content">
+      <div class="card" style="border-top-color: var(--purple-color);">
+        <form id="updateSlotForm">
+          <h3><span style="color:var(--purple-color)">🔧</span> Update Slot Status</h3>
+          <p style="color:var(--text-sub); margin-bottom:20px;">Manual Override: เปลี่ยนสถานะ ว่าง/เต็ม รายจุด</p>
+
+          <div class="form-group">
+            <label>Slot ID (รหัสช่องจอด - idStopArea)</label>
+            <input type="number" id="slotIdInput" placeholder="ระบุ ID (ดูได้จากตาราง DB)" required>
+          </div>
+
+          <div class="form-group">
+            <label>New Status (สถานะใหม่)</label>
+            <select id="slotStateInput">
+              <option value="true">✅ Available (ว่าง)</option>
+              <option value="false">⛔ Occupied (เต็ม)</option>
+            </select>
+          </div>
+
+          <button type="submit" style="background-color: var(--purple-color);">อัปเดตสถานะ (Update Status)</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    // UX Script: Tab Switching Logic
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        const targetId = tab.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  </script>
+
+  <script src="scriptAdd.js"></script>
+</body>
+
+</html>
