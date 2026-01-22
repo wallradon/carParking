@@ -38,6 +38,12 @@ nav a{
     font-size: 18px;
     text-decoration: none;
 }
+.car {
+    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือ (บน PC) และบอกมือถือว่าตรงนี้กดได้ */
+    user-select: none; /* ห้ามลากคลุมดำตัวหนังสือ (ช่วยลดบัคเวลากดรัวๆ) */
+    -webkit-tap-highlight-color: transparent; /* ลบสีฟ้าๆ เวลาแตะ */
+    touch-action: manipulation; /* บอก Browser ว่าไม่ต้องรอซูม ให้รับค่ากดเลย (สำคัญ!) */
+}
 
 .sectionSec{
     background-color: rgb(56, 56, 56);
