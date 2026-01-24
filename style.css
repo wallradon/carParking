@@ -17,7 +17,7 @@ body{
 }
 .kanit-regular {
     font-family: "Kanit", sans-serif;
-    font-weight: 400;
+    font-weight: 1000;
     font-style: normal;
 }
 
@@ -34,29 +34,53 @@ header{
 }
 
 nav{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     background-color: #1D546D;
     padding: 10px;
 }
-nav a{
-    font-family: "Kanit", sans-serif;
-    font-style: normal;
-    border: solid 2px #6b6b6b;
-    border-radius: 10px;
-    background-color: #ffffff;
-    color: #000000;
-    font-weight: 1rem;
-    padding: 0.5rem 2rem;  /* บนล่าง ซ้ายขวา */
-    margin: 0.5rem;
+/* DropDowe menu */
+.dropdown{
+    justify-self: end; /* จัดแกน x */
+    align-self: center;/* จัดแกน y */
+    padding-right: 2rem;
+}
+.dropdown button{
+    font-family: "Raleway", sans-serif;
+    font-weight: 1000;
+    cursor: pointer;
+    padding: 1rem;
     font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+.dropdown .content a{
+    font-family: "Kanit", sans-serif;
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #061E29;
+    background-color: #5F9598;
     text-decoration: none;
+    padding: 1rem;
 }
-nav a:hover {
-    background-color: #5F9598; /* เปลี่ยนเป็นสีทองตอนเอาเมาส์ชี้ */
-    color: #003366;
-    border-color: #5F9598;
-    transform: translateY(-2px);
+.dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 100px;
 }
+.dropdown:hover .content{
+    display: block;
+}
+.dropdown:hover button{
+    background-color: hsla(199, 74%, 9%, 0.353);
+    color: #F3F4F4;
+}
+.dropdown a:hover {
+    background-color: #00a7a72d;
+}
+
 .headerBox{
     display: flex ;
     justify-content: start;
@@ -65,16 +89,7 @@ nav a:hover {
     font-family: "Kanit", sans-serif;
     color: #F3F4F4;
 }
-.selectStop{
-    display: flex;
-    justify-content: end;
-    padding-right: 1rem;
-}
-.navBox{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
 
-}
 .select{
     background-color: #5F9598; 
     color: #ffffff;
@@ -100,19 +115,7 @@ nav a:hover {
     flex-direction: column;
 }
 
-.carL{
-    font-family: "Kanit", sans-serif;
-    display: flex;
-    justify-content: center; /*กลางแกน X*/
-    align-items: center; /* กลางแกน Y */
-    width: 30rem;
-    height: 10rem;
-    border: solid 5px #F3F4F4; 
-    border-right:none ;
-    margin: 1rem 0.5rem  0; /* บน ขวาซ้าย ล่าง */
-    color: #fff;
-}
-.carR{
+.carL, .carR{
     font-family: "Kanit", sans-serif;
     display: flex;
     justify-content: center; /*กลางแกน X*/
@@ -120,9 +123,14 @@ nav a:hover {
     width: 30rem;
     height: 10rem;
     border: solid 5px #F3F4F4;
-    border-left:none ;
     margin: 1rem 0.5rem  0; /* บน ขวาซ้าย ล่าง */
     color: #fff;
+}
+.carR{
+    border-left:none ;
+}
+.carL{
+    border-right:none ;
 }
 
 .carImg{
