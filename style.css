@@ -46,9 +46,9 @@ nav a{
     background-color: rgb(255, 255, 255);
     color: #000000;
     font-weight: 1rem;
-    padding: 0.5rem 3rem;  /* บนล่าง ซ้ายขวา */
+    padding: 0.5rem 2rem;  /* บนล่าง ซ้ายขวา */
     margin: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-decoration: none;
 }
 nav a:hover {
@@ -56,6 +56,23 @@ nav a:hover {
     color: #003366;
     border-color: #fdb913;
     transform: translateY(-2px);
+}
+.headerBox{
+    display: flex ;
+    justify-content: start;
+    align-items: center;
+    padding-left: 2rem;
+    font-family: "Kanit", sans-serif;
+}
+.selectStop{
+    display: flex;
+    justify-content: end;
+    padding-right: 1rem;
+}
+.navBox{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
 }
 .select{
     background-color: #676665; /* เปลี่ยนเป็นสีทองตอนเอาเมาส์ชี้ */
