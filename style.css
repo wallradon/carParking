@@ -22,7 +22,7 @@ body{
 }
 
 header{
-    background-color: rgb(0, 0, 0);
+    background-color: #000000;
     color: aliceblue;
     text-align: center;
     padding: 20px;
@@ -35,15 +35,15 @@ header{
 
 nav{
     display: flex;
-    background-color: rgb(178, 178, 178);
+    background-color: #1D546D;
     padding: 10px;
 }
 nav a{
     font-family: "Kanit", sans-serif;
     font-style: normal;
-    border: solid 2px #646464;
+    border: solid 2px #6b6b6b;
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
     color: #000000;
     font-weight: 1rem;
     padding: 0.5rem 2rem;  /* บนล่าง ซ้ายขวา */
@@ -52,9 +52,9 @@ nav a{
     text-decoration: none;
 }
 nav a:hover {
-    background-color: #fdb913; /* เปลี่ยนเป็นสีทองตอนเอาเมาส์ชี้ */
+    background-color: #5F9598; /* เปลี่ยนเป็นสีทองตอนเอาเมาส์ชี้ */
     color: #003366;
-    border-color: #fdb913;
+    border-color: #5F9598;
     transform: translateY(-2px);
 }
 .headerBox{
@@ -63,6 +63,7 @@ nav a:hover {
     align-items: center;
     padding-left: 2rem;
     font-family: "Kanit", sans-serif;
+    color: #F3F4F4;
 }
 .selectStop{
     display: flex;
@@ -75,7 +76,7 @@ nav a:hover {
 
 }
 .select{
-    background-color: #676665; /* เปลี่ยนเป็นสีทองตอนเอาเมาส์ชี้ */
+    background-color: #5F9598; 
     color: #ffffff;
     transform: translateY(-2px);
 }
@@ -91,7 +92,7 @@ nav a:hover {
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: auto;
     place-items: center;
-    background-color: rgb(56, 56, 56);
+    background-color:   #061E29;
     padding: 5rem;
 }
 .parkBox{
@@ -100,23 +101,25 @@ nav a:hover {
 }
 
 .carL{
+    font-family: "Kanit", sans-serif;
     display: flex;
     justify-content: center; /*กลางแกน X*/
     align-items: center; /* กลางแกน Y */
     width: 30rem;
     height: 10rem;
-    border: solid 5px #fff;
+    border: solid 5px #F3F4F4; 
     border-right:none ;
     margin: 1rem 0.5rem  0; /* บน ขวาซ้าย ล่าง */
     color: #fff;
 }
 .carR{
+    font-family: "Kanit", sans-serif;
     display: flex;
     justify-content: center; /*กลางแกน X*/
     align-items: center; /* กลางแกน Y */
     width: 30rem;
     height: 10rem;
-    border: solid 5px #fff;
+    border: solid 5px #F3F4F4;
     border-left:none ;
     margin: 1rem 0.5rem  0; /* บน ขวาซ้าย ล่าง */
     color: #fff;
@@ -128,5 +131,7 @@ nav a:hover {
 }
 
 .hidden-field {
-    display: none;
-    }
+    display: none;    
+}
+
+
