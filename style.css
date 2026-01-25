@@ -1,225 +1,233 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* =======================
+   FONT
+======================= */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch&family=JetBrains+Mono:wght@100..800&family=Raleway:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100..900&display=swap');
+
+/* =======================
+   RESET
+======================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Kanit", sans-serif;
-    max-width: 100%;
-}
-body{
-    min-height:100dvh;
-    background-color:   #061E29;
-    overflow-x: hidden;
-}
-.raleway-200 {
-    font-size: 40rem;
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
-}
-.kanit-regular {
-    font-family: "Kanit", sans-serif;
-    font-weight: 1000;
-    font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
 }
 
-nav{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    background-color: #1D546D;
-    padding: 10px;
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
-/* DropDowe menu */
-.dropdown{
-    justify-self: end; /* จัดแกน x */
-    align-self: center;/* จัดแกน y */
-    padding-right: 2rem;
-    
+
+body {
+  min-height: 100dvh;
+  background-color: #061E29;
 }
-.dropdown button{
-    font-family: "Raleway", sans-serif;
-    font-weight: 1000;
-    cursor: pointer;
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: none;
+
+/* =======================
+   NAVBAR
+======================= */
+nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #1D546D;
+  padding: 10px;
 }
-.dropdown .content a{
-    font-family: "Kanit", sans-serif;
-    display: block;
-    font-size: 1.2rem;
-    text-align: center;
-    color: #061E29;
-    background-color: #5F9598;
-    text-decoration: none;
-    padding: 1rem;
+
+.headerBox {
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  color: #F3F4F4;
 }
-.dropdown .content{
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 100px;
+
+.dropdown {
+  justify-self: end;
+  align-self: center;
+  padding-right: 2rem;
 }
-.dropdown:hover .content{
-    display: block;
+
+.dropdown button {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
-.dropdown:hover button{
-    background-color: hsla(199, 74%, 9%, 0.353);
-    color: #F3F4F4;
-    box-shadow: 0 -5px 10px rgba(0,0,0,0.3);
+
+.dropdown .content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
 }
+
+.dropdown:hover .content {
+  display: block;
+}
+
+.dropdown .content a {
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5F9598;
+  color: #061E29;
+}
+
 .dropdown a:hover {
-    background-color: #00a7a72d;
-    
+  background-color: #00a7a72d;
 }
 
-.headerBox{
-    display: flex ;
-    justify-content: start;
-    align-items: center;
-    padding-left: 2rem;
-    font-family: "Kanit", sans-serif;
-    color: #F3F4F4;
+/* =======================
+   MAIN SECTION
+======================= */
+.parkingCount {
+  text-align: center;
+  padding: 1.5rem;
+  color: #F3F4F4;
 }
 
+.sectionSec {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.parkBox {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =======================
+   PARKING SLOT
+======================= */
+.carL, .carR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 10rem;
+  border: solid 5px #F3F4F4;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.carL { border-right: none; }
+.carR { border-left: none; }
+
+.PHorizontal {
+  display: flex;
+  grid-column: 1 / span 2;
+  margin-top: 4rem;
+}
+
+.carB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 30rem;
+  border: solid 5px #F3F4F4;
+  border-top: none;
+  color: #fff;
+  margin: 0 1rem;
+}
+
+/* =======================
+   IMAGE
+======================= */
+.carImg {
+  width: 70%;
+  height: auto;
+}
+
+.carImgB {
+  height: 70%;
+  width: auto;
+  transform: rotate(90deg);
+}
+
+/* =======================
+   UTILITY
+======================= */
+.hidden-field {
+  display: none;
+}
 
 .cur {
-    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือ (บน PC) และบอกมือถือว่าตรงนี้กดได้ */
-    user-select: none; /* ห้ามลากคลุมดำตัวหนังสือ (ช่วยลดบัคเวลากดรัวๆ) */
-    -webkit-tap-highlight-color: transparent; /* ลบสีฟ้าๆ เวลาแตะ */
-    touch-action: manipulation; /* บอก Browser ว่าไม่ต้องรอซูม ให้รับค่ากดเลย (สำคัญ!) */
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-.sectionSec{
-    max-width: 100vw;
-    overflow-x: hidden;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: auto;
-    place-items: center;
-    background-color:   #061E29;
-    padding: 2rem;
-}
-.parkBox{
-    display: flex;
-    flex-direction: column;
-}
-.PHorizontal{
-    display: flex;
-    grid-column: 1 / span 2; 
-}
-.carL, .carR{
-    display: flex;
-    justify-content: center; /*กลางแกน X*/
-    align-items: center; /* กลางแกน Y */
-    font-family: "Kanit", sans-serif;
-    border: solid 5px #F3F4F4;
-    color: #fff;
-    width: 30rem;
-    height: 10rem;
-    margin: 1rem 0.5rem  0; /* บน ขวาซ้าย ล่าง */
-}
-.carB{
-    display: flex;
-    justify-content: center; /*กลางแกน X*/
-    align-items: center; /* กลางแกน Y */
-    border: solid 5px #F3F4F4;
-    color: #fff;
-    width: 10rem;
-    height: 30rem;
-    margin: 5rem 1rem  0; /* บน ขวาซ้าย ล่าง */
-    border-top:none ;
-}
-.carR{
-    border-left:none ;
-}
-.carL{
-    border-right:none ;
-}
+/* =====================================================
+   RESPONSIVE (Mobile & Tablet)
+===================================================== */
+@media (max-width: 768px) {
 
-.carImg{
-    width: 70%;
-    height: auto;
-}
-.carImgB{
+  /* NAV */
+  nav {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .headerBox {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .dropdown {
+    justify-self: center;
+    padding-right: 0;
+  }
+
+  /* GRID */
+  .sectionSec {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  /* SLOT L / R */
+  .carL, .carR {
+    width: auto;
+    align-self: stretch;
+    height: 15vw;
+    min-height: 40px;
+    margin: 0.5rem 0;
+    border-width: 2px;
+  }
+
+  /* HORIZONTAL SLOT */
+  .PHorizontal {
+    display: grid;                      /* ❗ เปลี่ยนจาก flex */
+    grid-template-columns: repeat(5, 1fr);
+    grid-column: 1 / -1;
+    gap: 0.3rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+
+  .carB {
+    width: auto;
+    height: 15vw;
+    max-height: 40px;
+    margin: 0;
+    border-width: 2px;
+    border-top: solid 2px #F3F4F4;   /* ❗ คืนเส้นบน */
+  }
+
+  .carImgB {
     height: 70%;
     width: auto;
-    object-fit: contain;
-    transform: rotate(90deg);
-}
-
-/* hidden span */
-.hidden-field {
-    display: none;    
-}
-
-/* countParking */
-
-.parkingCount{
-    text-align: center;
-    padding-top: 1.5rem ;
-    font-family: "Kanit", sans-serif;
-    color: #F3F4F4;
-}/* =========================================
-   Mobile Responsive (Lock 100% ไม่มีล้นชัวร์)
-   ========================================= */
-@media screen and (max-width: 768px) {
-    /* 1. ล็อคแม่ทัพ (HTML & Body) ห้ามล้นเด็ดขาด */
-    html, body {
-        width: 100%;
-        max-width: 100vw;
-        overflow-x: hidden; /* ตัดส่วนที่ล้นทิ้งทั้งหมด */
-    }
-
-    nav {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        justify-items: center; 
-    }
-    .headerBox {
-        padding-left: 0;
-        justify-content: center;
-    }
-    .dropdown {
-        justify-self: center;
-        padding-right: 0;
-    }
-
-    /* 2. บีบ Grid ให้พอดีจอเป๊ะๆ */
-    .sectionSec {
-        grid-template-columns: repeat(2, 1fr); 
-        padding: 0.5rem;
-        gap: 0.5rem;
-        width: 100%; /* บังคับให้ Grid ไม่กางเกินจอ */
-        box-sizing: border-box; 
-    }
-
-    /* 3. ปล่อยให้รถยืดเองอัตโนมัติ (ไม่ใช้ 100% แล้ว) */
-    .carL, .carR {
-        width: auto; /* auto ปลอดภัยที่สุด จะไม่ตีกับ border */
-        align-self: stretch; /* ให้ยืดเต็มช่องอัตโนมัติ */
-        height: 15vw;
-        min-height: 40px;
-        margin: 0.5rem 0; /* เว้นแค่ บน-ล่าง / ซ้าย-ขวาเป็น 0 */
-        border-width: 2px;
-    }
-    .carImgB{
-        height: 80%;
-    }    
-    /* 4. แก้ไขรถแถวแนวนอนด้านล่าง (P2) */
-    .PHorizontal {
-        justify-content: space-between;
-        grid-column: 1 / -1; /* กินพื้นที่ตั้งแต่เส้นแรกถึงเส้นสุดท้าย */
-        display: flex;
-        width: 100%;
-        gap: 0.3rem;
-        margin: 1rem 0 0 0; /* เว้นแค่ด้านบน */
-    }
-    .carB {
-        height: 15vw;   /* เท่ากับ carL / carR */
-        max-height: 40px;
-    }
+    transform: none;   /* ❗ ไม่ต้องหมุนบนมือถือ */
+  }
 }
