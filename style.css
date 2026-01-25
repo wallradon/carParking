@@ -159,3 +159,79 @@ nav{
     color: #F3F4F4;
 }
 
+/* =========================================
+   Responsive Design (Media Queries)
+   รองรับหน้าจอที่เล็กกว่า 768px (Tablet & Mobile)
+   ========================================= */
+   @media screen and (max-width: 768px) {
+    /* ปรับขนาดตัวอักษรที่ใหญ่เกินไปให้พอดีกับมือถือ */
+    .raleway-200 {
+        font-size: 4rem; /* ปรับลดจาก 40rem (ซึ่งใหญ่มาก) มาเป็น 4rem */
+    }
+
+    /* เปลี่ยน Grid จาก 2 คอลัมน์ ให้เรียงเป็น 1 คอลัมน์แนวตั้ง */
+    .sectionSec {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    /* ปรับให้ส่วนที่เคยคลุม 2 คอลัมน์ คลุมแค่คอลัมน์เดียว */
+    .PHorizontal {
+        grid-column: 1 / -1; 
+        flex-direction: column; /* เปลี่ยนลูกข้างในให้เรียงแนวตั้งด้วยถ้ามี */
+    }
+
+    /* ปรับขนาดกล่องรถให้ยืดหยุ่นตามขนาดหน้าจอ (ไม่ฟิกซ์ที่ 30rem) */
+    .carL, .carR {
+        width: 100%; 
+        height: auto;
+        min-height: 10rem;
+        margin: 1rem 0;
+        border-width: 3px; /* ปรับขอบให้บางลงในมือถือ */
+    }
+
+    /* คืนค่า Border ที่ถูกลบออกไป เพื่อให้เส้นครบทุกด้านเมื่อเรียงแนวตั้ง */
+    .carR {
+        border-left: solid 3px #F3F4F4;
+    }
+    .carL {
+        border-right: solid 3px #F3F4F4;
+    }
+
+    /* ปรับกล่องแนวตั้ง ให้กลายเป็นแนวนอนแทนในมือถือ */
+    .carB {
+        width: 100%;
+        height: auto;
+        min-height: 10rem;
+        margin: 1rem 0;
+        border-top: solid 3px #F3F4F4; /* คืนค่าเส้นขอบบน */
+    }
+
+    /* หมุนรูปรถกลับมาแนวนอนถ้ากล่องเปลี่ยนเป็นแนวนอน */
+    .carImgB {
+        width: 70%;
+        height: auto;
+        transform: rotate(0deg); 
+    }
+}
+
+/* =========================================
+   รองรับหน้าจอที่เล็กกว่า 480px (Mobile ขนาดเล็ก)
+   ========================================= */
+@media screen and (max-width: 480px) {
+    nav {
+        grid-template-columns: 1fr; /* เปลี่ยนเมนูบาร์ให้เรียงแนวตั้ง */
+        text-align: center;
+    }
+    
+    .headerBox {
+        justify-content: center;
+        padding-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .dropdown {
+        justify-self: center;
+        padding-right: 0;
+    }
+}
