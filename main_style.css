@@ -4,22 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+    font-style: normal;
 }
 body{
     min-height:100dvh;
     background-color:   #061E29;
-}
-.raleway-200 {
-    font-size: 40rem;
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
-}
-.kanit-regular {
-    font-family: "Kanit", sans-serif;
-    font-weight: 1000;
-    font-style: normal;
 }
 
 nav{
@@ -30,7 +20,7 @@ nav{
 }
 .headerBox{
     padding-left: 2rem;
-    font-family: "Kanit", sans-serif;
+    
     color: #F3F4F4;
 }
 
@@ -42,8 +32,11 @@ nav{
 }
 
 section{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+    grid-template-rows: auto;
+    place-items: center;
+    /* background-color: #F3F4F4; */
 }
 section a{
     display: flex;
@@ -56,4 +49,10 @@ section a{
     width: 10rem;
     height: 5rem;
     border-radius: 10px;
+}
+
+.textH2{
+    text-align: center;
+    padding: 1rem;
+    color: #F3F4F4;
 }
