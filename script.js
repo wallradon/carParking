@@ -1,99 +1,91 @@
-function updateParking() {
-  const stoperR = document.querySelectorAll(".carR");
-  const stoperL = document.querySelectorAll(".carL");
+const parkingSlots = [
+  { id: 1, side: "L", full: true },
+  { id: 2, side: "L", full: false },
+  { id: 3, side: "L", full: false },
+  { id: 4, side: "L", full: true },
+  { id: 5, side: "L", full: false },
+  { id: 6, side: "R", full: true },
+  { id: 7, side: "R", full: false },
+  { id: 8, side: "R", full: true },
+  { id: 9, side: "R", full: false },
+  { id: 10, side: "R", full: false }
+];
+//check state parking
+function parkingState() {
+  parkingSlots.forEach(s => {
+    if (!s.full) return; //empty
+    const elId = getElById(s.id); //data-id div
+    console.log(elId);
+    renderSlot(elId, s);
+  });
+  countEmpty();
+}
+//get id El
+function getElById(id) {
+  return document.querySelector(`[data-id="${id}"]`);
+}
+parkingState();
+//เช็คค่าว่ามีไอดีนี้มั้ย
+function getSlotById(id) {
+  return parkingSlots.find(slot => slot.id === id); //return oject
+}
 
-  stoperL.forEach(slot => {
-    const name = slot.getAttribute('name');
-    const haveCar = slot.querySelector('.carImg') != null;
+function handleSlotClick(slotElement) {
 
-    if (haveCar) {
-      console.log(`Parking ${name} is Full`);
-    } else {
-      console.log(`Parking ${name} Is Empty`);
+  const id = Number(slotElement.dataset.id); // get id from data-id in divEl
+  const slotData = getSlotById(id);
+
+  if (!slotData) return; //ถ้าไม่เจอออก
+
+  slotData.full = !slotData.full;
+  renderSlot(slotElement, slotData); //add image
+  renderSummary(); //log parkingSlots oject 
+  countEmpty();
+}
+
+function renderSlot(el, data) {
+  const span = el.querySelector("span");
+  const img = el.querySelector(".carImg");
+
+  if (data.full) { //add image
+    if (!img) {
+      const car = document.createElement("img");
+      car.src = data.side === "L" ? "img/car.png" : "img/car R.png";
+      car.className = "carImg";
+      el.appendChild(car);
     }
-  })
+    span?.classList.add("hidden-field"); //hidden text
+  } else {
+    img?.remove();
+    span?.classList.remove("hidden-field");
+  }
+}
+
+function renderSummary() {
+  parkingSlots.forEach(slot => {
+    console.log(
+      `Parking ${slot.id} is ${slot.full ? "Full" : "Empty"}`
+    );
+  });
   console.log("\n");
-  stoperR.forEach(slot => {
-    const name = slot.getAttribute('name');
-    const haveCar = slot.querySelector('.carImg') != null;
-    if (haveCar) {
-      console.log(`Parking ${name} is Full`);
-    } else {
-      console.log(`Parking ${name} Is Empty`);
+}
+
+document.querySelectorAll(".carL, .carR").forEach(s => {
+  s.addEventListener("click", () => handleSlotClick(s))
+});
+
+function countEmpty() {
+  let count = 0;
+  parkingSlots.forEach(s => {
+    if (!s.full) {
+      count++;
     }
-  })
-}
-
-
-function addCar() {
-  const carimgL = document.querySelectorAll(".carL"); //เก็บข้อมูลจาก class = car
-  carimgL.forEach(carIsFull => {
-    carIsFull.addEventListener("click", function () {
-      const existingCar = this.querySelector('.carImg'); //เก็บ .carImg ใน .carL
-      const spanstate = this.querySelector('span'); //span in .carL
-      if (existingCar == null) { //not have .carImg
-        //add <img>
-        const newCar = document.createElement("img");
-        newCar.src = "img/car.png";
-        newCar.className = "carImg";
-        newCar.alt = "Car";
-        this.appendChild(newCar); //add img in <div class='carL'>
-        //add class in span
-        if (spanstate) {
-          spanstate.classList.add("hidden-field");
-        }
-        console.log(`Add car`);
-        updateParking();
-      } else {
-        existingCar.remove();
-        console.log(`Can not add car`);
-        if (spanstate) {
-          spanstate.classList.remove("hidden-field");
-        }
-      }
-    });
   });
-
-  const carimgR = document.querySelectorAll(".carR"); //เก็บข้อมูลจาก class = car
-  carimgR.forEach(carIsFull => {
-    carIsFull.addEventListener("click", function () {
-
-      const existingCar = this.querySelector('.carImg');
-      const spanstate = this.querySelector('span');
-
-      if (existingCar == null) {
-
-        const newCar = document.createElement("img");
-        newCar.src = "img/car R.png";
-        newCar.className = "carImg";
-        newCar.alt = "Car";
-
-        this.appendChild(newCar);
-
-        if (spanstate) {
-          spanstate.classList.add("hidden-field");
-        }
-
-        console.log(`Add car`);
-
-        updateParking();
-
-      } else {
-        existingCar.remove();
-        console.log(`Can not add car`);
-        if (spanstate) {
-          spanstate.classList.remove("hidden-field");
-        }
-      }
-    });
-  });
-
+  console.log(`Empty = ${count}`);
+  const parkingCount = document.querySelector(".parkingCount");
+  if (count > 0) {
+    parkingCount.textContent = `ที่จอดรถว่าง ${count} คัน`;
+  } else {
+    parkingCount.textContent = `ที่จอดรถเต็ม`;
+  }
 }
-updateParking();
-addCar()
-
-
-// setInterval(() => {
-//   updateParking();
-// }, 2000); // สั่ง update ทุก 2 วิ
-
