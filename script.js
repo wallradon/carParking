@@ -8,14 +8,19 @@ const parkingSlots = [
   { id: 7, side: "R", full: false },
   { id: 8, side: "R", full: true },
   { id: 9, side: "R", full: false },
-  { id: 10, side: "R", full: false }
+  { id: 10, side: "R", full: false },
+  { id: 11, side: "B", full: false },
+  { id: 12, side: "B", full: false },
+  { id: 13, side: "B", full: false },
+  { id: 14, side: "B", full: false },
+  { id: 15, side: "B", full: false }
 ];
 //check state parking
 function parkingState() {
   parkingSlots.forEach(s => {
     if (!s.full) return; //empty
     const elId = getElById(s.id); //data-id div
-    console.log(elId);
+    // console.log(elId);
     renderSlot(elId, s);
   });
   countEmpty();
@@ -46,17 +51,27 @@ function handleSlotClick(slotElement) {
 function renderSlot(el, data) {
   const span = el.querySelector("span");
   const img = el.querySelector(".carImg");
+  const imgB = el.querySelector(".carImgB");
 
   if (data.full) { //add image
-    if (!img) {
+    if (!img && !imgB) {
       const car = document.createElement("img");
       car.src = data.side === "L" ? "img/car.png" : "img/car R.png";
-      car.className = "carImg";
+      if (data.side === "L" || data.side === "R") {
+        car.className = "carImg";
+      } else {
+        car.className = "carImgB";
+      }
       el.appendChild(car);
     }
     span?.classList.add("hidden-field"); //hidden text
   } else {
-    img?.remove();
+    if (img) {
+      img.remove();
+    } else if (imgB) {
+      imgB.remove();
+    }
+
     span?.classList.remove("hidden-field");
   }
 }
@@ -70,7 +85,7 @@ function renderSummary() {
   console.log("\n");
 }
 
-document.querySelectorAll(".carL, .carR").forEach(s => {
+document.querySelectorAll(".carL, .carR, .carB").forEach(s => {
   s.addEventListener("click", () => handleSlotClick(s))
 });
 
@@ -81,7 +96,7 @@ function countEmpty() {
       count++;
     }
   });
-  console.log(`Empty = ${count}`);
+  // console.log(`Empty = ${count}`);
   const parkingCount = document.querySelector(".parkingCount");
   if (count > 0) {
     parkingCount.textContent = `ที่จอดรถว่าง ${count} คัน`;

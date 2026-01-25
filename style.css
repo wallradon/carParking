@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
 }
 body{
     min-height:100dvh;
@@ -101,17 +102,31 @@ nav{
     display: flex;
     flex-direction: column;
 }
-
+.PHorizontal{
+    display: flex;
+    grid-column: 1 / span 2; 
+}
 .carL, .carR{
-    font-family: "Kanit", sans-serif;
     display: flex;
     justify-content: center; /*กลางแกน X*/
     align-items: center; /* กลางแกน Y */
+    font-family: "Kanit", sans-serif;
+    border: solid 5px #F3F4F4;
+    color: #fff;
     width: 30rem;
     height: 10rem;
-    border: solid 5px #F3F4F4;
     margin: 1rem 0.5rem  0; /* บน ขวาซ้าย ล่าง */
+}
+.carB{
+    display: flex;
+    justify-content: center; /*กลางแกน X*/
+    align-items: center; /* กลางแกน Y */
+    border: solid 5px #F3F4F4;
     color: #fff;
+    width: 10rem;
+    height: 30rem;
+    margin: 5rem 1rem  0; /* บน ขวาซ้าย ล่าง */
+    border-top:none ;
 }
 .carR{
     border-left:none ;
@@ -123,6 +138,11 @@ nav{
 .carImg{
     width: 70%;
     height: auto;
+}
+.carImgB{
+    width: auto;
+    height: 70%;
+    transform: rotate(90deg);
 }
 
 /* hidden span */
