@@ -1,58 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --primary-color: #061E29;
+    --accent-color: #1D546D;
+    --bg-light: #F3F4F4;
+    --text-light: #F3F4F4;
+    --text-dark: #061E29;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Kanit", sans-serif;
-    font-style: normal;
-}
-body{
-    min-height:100dvh;
-    background-color:   #061E29;
 }
 
-nav{
-    display: flex;
-    justify-content: center;
-    background-color: #1D546D;
-    padding: 10px;
-}
-.headerBox{
-    padding-left: 2rem;
-    
-    color: #F3F4F4;
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    line-height: 1.6;
 }
 
-.cur {
-    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือ (บน PC) และบอกมือถือว่าตรงนี้กดได้ */
-    user-select: none; /* ห้ามลากคลุมดำตัวหนังสือ (ช่วยลดบัคเวลากดรัวๆ) */
-    -webkit-tap-highlight-color: transparent; /* ลบสีฟ้าๆ เวลาแตะ */
-    touch-action: manipulation; /* บอก Browser ว่าไม่ต้องรอซูม ให้รับค่ากดเลย (สำคัญ!) */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-section{
-    display: grid;
-    grid-template-columns: repeat(2, 0.5fr);
-    grid-template-rows: auto;
-    place-items: center;
-    /* background-color: #F3F4F4; */
-}
-section a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1D546D ;
-    text-decoration: none;
-    color: #F3F4F4;
-    margin: 1rem;
-    width: 10rem;
-    height: 5rem;
-    border-radius: 10px;
+/* Navbar */
+.navbar {
+    background-color: var(--accent-color);
+    padding: 1.2rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.textH2{
+.logo {
+    font-size: 2rem;
+    font-weight: 1000;
+}
+
+.logo span {
+    font-weight: 300;
+    color: #5F9598;
+}
+
+/* Header Section */
+.section-header {
+    margin: 2rem 0;
     text-align: center;
-    padding: 1rem;
-    color: #F3F4F4;
 }
+
+.section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: #8da2ad;
+}
+
+/* Parking Grid (UX: กดง่ายบนมือถือ) */
+.parking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.parking-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid #1D546D;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.parking-card:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-5px);
+    border-color: #5F9598;
+}
+
+.card-icon {
+    background-color: #5F9598;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.card-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.card-info span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Status Colors */
+.active .card-info span { color: var(--success); }
+.disabled { opacity: 0.5; cursor: not-allowed; }

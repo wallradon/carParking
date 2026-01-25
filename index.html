@@ -1,33 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Parking RMUTL P1</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+  <title>Car Parking RMUTL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Raleway:wght@400;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./main_style.css">
+  <link rel="stylesheet" href="main_style.css">
 </head>
 
-<body class="cur">
-  <nav>
-    <div class="headerBox">
-      <h1>Car Parking RMUTL</h1>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">RMUTL Parking</h1>
     </div>
   </nav>
-  <h2 class="textH2">Parking area</h2>
-  <section>
-    <a href="./P1.html">ศศ.</a>
-    <a href="#"> ตึกโยธา 6.</a>
-    <a href="#">#</a>
-    <a href="#">#</a>
-    <a href="#">#</a>
-    <a href="#">#</a>
-  </section>
+
+  <main class="container">
+    <header class="section-header">
+      <h2>เลือกลานจอดรถ</h2>
+      <p>กรุณาเลือกตึกหรือโซนที่ต้องการตรวจสอบ</p>
+    </header>
+
+    <section class="parking-grid">
+      <a href="./P1.html" class="parking-card active">
+        <div class="card-icon">P1</div>
+        <div class="card-info">
+          <h3>ตึกศศ.</h3>
+          <!-- <span>สถานะ: ว่าง</span> -->
+        </div>
+      </a>
+
+      <a href="#" class="parking-card">
+        <div class="card-icon">P2</div>
+        <div class="card-info">
+          <h3>ตึกโยธา 6</h3>
+          <!-- <span>สถานะ: เต็ม</span> -->
+        </div>
+      </a>
+
+      <a href="#" class="parking-card disabled">
+        <div class="card-icon">#</div>
+        <div class="card-info">
+          <h3>กำลังปรับปรุง</h3>
+          <span>ไม่พร้อมใช้งาน</span>
+        </div>
+      </a>
+
+    </section>
+  </main>
+
 </body>
 
 </html>

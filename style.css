@@ -65,9 +65,11 @@ nav{
 .dropdown:hover button{
     background-color: hsla(199, 74%, 9%, 0.353);
     color: #F3F4F4;
+    transform: translateY(-5px);
 }
 .dropdown a:hover {
     background-color: #00a7a72d;
+    
 }
 
 .headerBox{
