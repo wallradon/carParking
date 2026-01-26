@@ -20,14 +20,14 @@ function parkingState() {
   parkingSlots.forEach(s => {
     if (!s.full) return; //empty
     const elId = getElById(s.id); //data-id div
-    // console.log(elId);
     renderSlot(elId, s);
   });
   countEmpty();
 }
 //get id El
 function getElById(id) {
-  return document.querySelector(`[data-id="${id}"]`);
+  const test = document.querySelector(`[data-id="${id}"]`);
+  return test;
 }
 parkingState();
 //เช็คค่าว่ามีไอดีนี้มั้ย
@@ -36,7 +36,6 @@ function getSlotById(id) {
 }
 
 function handleSlotClick(slotElement) {
-
   const id = Number(slotElement.dataset.id); // get id from data-id in divEl
   const slotData = getSlotById(id);
 
@@ -92,11 +91,14 @@ document.querySelectorAll(".carL, .carR, .carB").forEach(s => {
 function countEmpty() {
   let count = 0;
   parkingSlots.forEach(s => {
-    if (!s.full) {
+    const elId = getElById(s.id);
+    if (!elId) return;
+    console.log(`elId= `, Number(elId.dataset.id));
+    if (elId && !s.full) {
       count++;
     }
+
   });
-  // console.log(`Empty = ${count}`);
   const parkingCount = document.querySelector(".parkingCount");
   if (count > 0) {
     parkingCount.textContent = `ที่จอดรถว่าง ${count} คัน`;
@@ -104,5 +106,3 @@ function countEmpty() {
     parkingCount.textContent = `ที่จอดรถเต็ม`;
   }
 }
-
-document.documentElement.scrollWidth === window.innerWidth;
