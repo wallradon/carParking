@@ -55,7 +55,7 @@ function renderSlot(el, data) {
   if (data.full) { //add image
     if (!img && !imgB) {
       const car = document.createElement("img");
-      car.src = data.side === "L" ? "img/car.png" : "img/car R.png";
+      car.src = data.side === "L" ? "img/car.png" : "img/carR.png";
       if (data.side === "L" || data.side === "R") {
         car.className = "carImg";
       } else {
