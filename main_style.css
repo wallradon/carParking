@@ -109,6 +109,9 @@ body {
     opacity: 0.8;
 }
 
+.csscard{
+    background-color: #0a3548;
+}
 /* Status Colors */
 .active .card-info span { color: var(--success); }
 .disabled { opacity: 0.5; cursor: not-allowed; }

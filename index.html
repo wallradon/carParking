@@ -7,6 +7,8 @@
   <title>Car Parking RMUTL</title>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Raleway:wght@400;700&display=swap"
     rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="main_style.css">
 </head>
 
@@ -24,32 +26,41 @@
       <p>กรุณาเลือกตึกหรือโซนที่ต้องการตรวจสอบ</p>
     </header>
 
-    <section class="parking-grid">
-      <a href="./P1.html" class="parking-card active">
-        <div class="card-icon">P1</div>
-        <div class="card-info">
-          <h3>ตึกศศ.</h3>
-        </div>
-      </a>
+    <section class="parking-grid container">
 
-      <a href="./P2.html" class="parking-card">
-        <div class="card-icon">P2</div>
-        <div class="card-info">
-          <h3>ตึกโยธา 6</h3>
+      <div class="card" style="width: 18rem;">
+        <img src="./img/p1.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">ตึกศศ.</h5>
+          <p class="card-text"></p>
+          <a href="./P1.html" class="btn btn-primary csscard">ดูที่จอด</a>
+          <a href="https://maps.app.goo.gl/zyowGeX8HT7p5xg6A" class="btn btn-primary csscard">แผนที่</a>
         </div>
-      </a>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="./img/p2.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">ตึกโยธา 6</h5>
+          <p class="card-text"></p>
+          <a href="./P2.html" class="btn btn-primary csscard">ดูที่จอด</a>
+          <a href="https://maps.app.goo.gl/8PNNi8Wc8rW8G8W38" class="btn btn-primary csscard">แผนที่</a>
+        </div>
+      </div>
 
-      <a href="#" class="parking-card disabled">
-        <div class="card-icon">#</div>
-        <div class="card-info">
-          <h3>กำลังปรับปรุง</h3>
-          <span>ไม่พร้อมใช้งาน</span>
+      <div class="card " style="width: 18rem;">
+        <img src="./img/anno.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">SOON</h5>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary csscard">ดูที่จอด</a>
         </div>
-      </a>
+      </div>
 
     </section>
   </main>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
