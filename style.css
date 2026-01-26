@@ -33,51 +33,28 @@ nav {
   background-color: #1D546D;
   padding: 10px;
 }
+.btnhome{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: end;
+}
+.btnhome a{
+  background-color: #F3F4F4;
+  text-align: center;
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: 800;
+  color: #061E29;
+  border-radius: 10px;
+  
+}
 
 .headerBox {
   display: flex;
   align-items: center;
   padding-left: 2rem;
   color: #F3F4F4;
-}
-
-.dropdown {
-  justify-self: end;
-  align-self: center;
-  padding-right: 2rem;
-}
-
-.dropdown button {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  padding: 1rem;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown .content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 120px;
-}
-
-.dropdown:hover .content {
-  display: block;
-}
-
-.dropdown .content a {
-  display: block;
-  padding: 1rem;
-  text-align: center;
-  text-decoration: none;
-  background-color: #5F9598;
-  color: #061E29;
-}
-
-.dropdown a:hover {
-  background-color: #00a7a72d;
 }
 
 /* =======================
