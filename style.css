@@ -149,19 +149,31 @@ nav {
 
   /* NAV */
   nav {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
   }
 
   .headerBox {
-    padding-left: 0;
-    justify-content: center;
+    padding: 0;
   }
 
-  .dropdown {
-    justify-self: center;
-    padding-right: 0;
+  .headerBox h1 {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  .btnhome {
+    width: auto;
+    align-items: center;
+  }
+
+  .btnhome a {
+    width: auto;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: 999px; /* pill button */
   }
 
   /* GRID */
