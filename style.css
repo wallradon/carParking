@@ -208,7 +208,6 @@ nav {
   /* HORIZONTAL SLOT */
   .PHorizontal {
     display: grid;
-    /* ❗ เปลี่ยนจาก flex */
     grid-template-columns: repeat(5, 1fr);
     grid-column: 1 / -1;
     gap: 0.3rem;
@@ -224,7 +223,6 @@ nav {
     margin: 0;
     border-width: 2px;
     border-top: solid 2px #F3F4F4;
-    /* ❗ คืนเส้นบน */
   }
 
   .carImgB {

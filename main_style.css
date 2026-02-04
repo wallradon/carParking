@@ -52,7 +52,7 @@ body {
     border: none;
     border-radius: 20px;
     width: 90%;
-    background-color: #061e29;
+    background-color: #061e2900;
     overflow: hidden;
 }
 
@@ -70,7 +70,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #061e29;
+    background-color: #061e2900;
 }
 
 .popUpExit {
