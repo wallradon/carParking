@@ -106,3 +106,5 @@ function countEmpty() {
     parkingCount.textContent = `ที่จอดรถเต็ม`;
   }
 }
+
+
