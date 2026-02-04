@@ -14,7 +14,8 @@
   font-family: "Kanit", sans-serif;
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -33,13 +34,15 @@ nav {
   background-color: #1D546D;
   padding: 10px;
 }
-.btnhome{
+
+.btnhome {
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
   align-items: end;
 }
-.btnhome a{
+
+.btnhome a {
   background-color: #F3F4F4;
   text-align: center;
   padding: 1rem;
@@ -47,7 +50,7 @@ nav {
   font-weight: 800;
   color: #061E29;
   border-radius: 10px;
-  
+
 }
 
 .headerBox {
@@ -82,7 +85,8 @@ nav {
 /* =======================
    PARKING SLOT
 ======================= */
-.carL, .carR {
+.carL,
+.carR {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,8 +97,13 @@ nav {
   margin-top: 1rem;
 }
 
-.carL { border-right: none; }
-.carR { border-left: none; }
+.carL {
+  border-right: none;
+}
+
+.carR {
+  border-left: none;
+}
 
 .PHorizontal {
   display: flex;
@@ -125,7 +134,7 @@ nav {
 .carImgB {
   height: 70%;
   width: auto;
-  transform: rotate(90deg);
+  /* transform: rotate(90deg); */
 }
 
 /* =======================
@@ -173,7 +182,8 @@ nav {
     width: auto;
     padding: 0.35rem 0.6rem;
     font-size: 0.75rem;
-    border-radius: 999px; /* pill button */
+    border-radius: 999px;
+    /* pill button */
   }
 
   /* GRID */
@@ -185,7 +195,8 @@ nav {
   }
 
   /* SLOT L / R */
-  .carL, .carR {
+  .carL,
+  .carR {
     width: auto;
     align-self: stretch;
     height: 15vw;
@@ -196,7 +207,8 @@ nav {
 
   /* HORIZONTAL SLOT */
   .PHorizontal {
-    display: grid;                      /* ❗ เปลี่ยนจาก flex */
+    display: grid;
+    /* ❗ เปลี่ยนจาก flex */
     grid-template-columns: repeat(5, 1fr);
     grid-column: 1 / -1;
     gap: 0.3rem;
@@ -211,12 +223,14 @@ nav {
     max-height: 40px;
     margin: 0;
     border-width: 2px;
-    border-top: solid 2px #F3F4F4;   /* ❗ คืนเส้นบน */
+    border-top: solid 2px #F3F4F4;
+    /* ❗ คืนเส้นบน */
   }
 
   .carImgB {
     height: 70%;
     width: auto;
-    transform: none;   /* ❗ ไม่ต้องหมุนบนมือถือ */
+    transform: none;
+    /* ❗ ไม่ต้องหมุนบนมือถือ */
   }
 }
