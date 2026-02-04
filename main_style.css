@@ -61,14 +61,16 @@ body {
 }
 
 .popUp {
-    padding: 0;
+    padding: 20px;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #061e29;
 }
 
 .popUpExit {
@@ -88,6 +90,12 @@ body {
 .popUpExit:hover {
     transform: scale(1.05);
     background-color: #212121;
+}
+
+#myModal::backdrop {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popUp img {
