@@ -141,7 +141,7 @@ function renderSummary() {
 // document.querySelectorAll(".carL, .carR, .carB").forEach(s => {
 //   s.addEventListener("click", () => handleSlotClick(s))
 // });
-fetchParkingState();
+
 
 function countEmpty() {
   let count = 0;
@@ -161,5 +161,34 @@ function countEmpty() {
     parkingCount.textContent = `ที่จอดรถเต็ม`;
   }
 }
+// ฟังก์ชันสำหรับรับฟังวิทยุจาก รปภ. โกดัง
+function setupRealtimeListener() {
+  console.log('เปิดวิทยุสื่อสาร รอฟังสถานะลานจอดรถ...');
 
+  // สร้างช่องสัญญาณวิทยุ (Channel)
+  supabase
+    .channel('parking-room') // ตั้งชื่อช่องสัญญาณอะไรก็ได้
+    .on(
+      'postgres_changes',
+      {
+        event: '*',           // ฟังทุกเหตุการณ์ (ทั้ง INSERT, UPDATE, DELETE)
+        schema: 'public',     // โซนปกติของฐานข้อมูล
+        table: 'stopAreas'    // ฟังเฉพาะความเคลื่อนไหวของตาราง stopAreas
+      },
+      (payload) => {
+        // เมื่อมีสัญญาณวอเข้ามา (ข้อมูลเปลี่ยน) จะเข้ามาทำงานในบล็อกนี้
+        console.log('รปภ. วอมาบอกว่ามีรถเข้า/ออก!', payload);
 
+        // สั่งให้ระบบไปดึงข้อมูลใหม่ทั้งหมดมาวาดบนหน้าจอ
+        fetchParkingState();
+      }
+    )
+    .subscribe((status) => {
+      if (status === 'SUBSCRIBED') {
+        console.log('เชื่อมต่อวิทยุสื่อสารสำเร็จ พร้อมรับแจ้งเตือน!');
+      }
+    });
+}
+
+fetchParkingState();
+setupRealtimeListener();
