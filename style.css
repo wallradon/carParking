@@ -77,6 +77,14 @@ nav {
   gap: 1rem;
 }
 
+.sectionSec3 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  place-items: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+
 .parkBox {
   display: flex;
   flex-direction: column;
